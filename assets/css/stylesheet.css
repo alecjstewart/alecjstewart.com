@@ -1,0 +1,88 @@
+/* Site Content */
+body {
+  font-family: Open Sans,Arial;
+  color: #454545;
+  font-size: 16px;
+  margin: 2em auto;
+  max-width: 800px;
+  padding: 1em;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* Defaults */
+a {
+  color: #cc5500;
+}
+nav {
+  margin-bottom: 2rem;
+}
+blockquote {
+  font-style: italic;
+  border-left: 5px solid #cc5500;
+  padding: 0 1rem;
+}
+blockquote:before {
+  color: #cc5500;
+  content: open-quote;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+  margin: 0;
+}
+
+/* Header and Navigation */
+header h1 {
+  margin: 0 0 0.5rem 0;
+}
+header h1 a {
+  color: #454545;
+  text-decoration: none;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline;
+  margin-left: 1rem;
+}
+nav li:first-child {
+  margin: 0;
+}
+
+/* Essays */
+article h2 {
+  margin-bottom: 0.5rem;
+}
+time {
+  color: #b8b8b8;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  color: #ccc;
+}
+
+/* Misc */
+.center {
+  text-align: center;
+}
+.headshot {
+  max-height: 300px;
+  max-width: 75%;
+  border-radius: 50%;
+}
+
+/* Media Queries */
+@media screen and (max-width:500px) {
+  body {
+   text-align: left;
+  }
+}
