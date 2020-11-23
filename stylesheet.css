@@ -34,6 +34,11 @@ blockquote p {
   display: inline;
   margin: 0;
 }
+small {
+  margin-left: 1.5em;
+  font-size: 16px;
+  font-weight: normal;
+}
 
 /* Header and Navigation */
 header h1 {
@@ -67,7 +72,7 @@ time {
 /* Footer */
 footer {
   margin-top: 2rem;
-  color: #ccc;
+  color: #b8b8b8;
 }
 
 /* Misc */
@@ -78,6 +83,15 @@ footer {
   max-height: 300px;
   max-width: 75%;
   border-radius: 50%;
+}
+.tweets li ul li {
+  list-style-type: none;
+}
+.tweets li:not(:first-child) {
+  margin-top: 1.5rem;
+}
+.tweets li ul {
+  padding-left: 20px;
 }
 
 /* Media Queries */

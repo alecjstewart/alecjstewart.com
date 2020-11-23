@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang=en>
-<head>
-  <title>About | Alec J. Stewart</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="icon" href="favicon.png">
-</head>
-<body>
-  <header>
-    <h1><a href="index.html">Alec J. Stewart</a></h1>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="essays.html">Essays</a></li>
-    </ul>
-  </nav>
-
+{% extends 'templates/base.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
   <section>
     <h2>About Me</h2>
     <p>My name is Alec Stewart, and I like to make things, I often break things, and sometimes I take things too seriously. I am fascinated by the capabilities of technology and what we can do with them, but I can't dismiss their darker consequences.</p>
@@ -43,12 +25,7 @@
     <ul>
       <li>Email: <strong>alec [at] alecjstewart.com</strong></li>
       <li>Github: <a href="https://github.com/alecjstewart">@alecjstewart</a></li>
-      <li>Twitter: <a href="https://twitter.com/alecjstewart">@alecjstewart</a></li>
+      <li>Twitter: <a href="https://twitter.com/alecjstewart">@alecjstewart</a> (I'm no longer active on Twitter, but an archive of my tweets can be found <a href="tweets.html">here</a>)</li>
     </ul>
   </section>
-
-  <footer>
-    <p>&copy; 2020 ajs</p>
-  </footer>
-</body>
-</html>
+{% endblock %}

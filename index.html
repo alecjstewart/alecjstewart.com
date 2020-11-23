@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang=en>
-<head>
-  <title>Alec J. Stewart</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="icon" href="favicon.png">
-</head>
-<body>
-  <header>
-    <h1><a href="index.html">Alec J. Stewart</a></h1>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="essays.html">Essays</a></li>
-    </ul>
-  </nav>
-
+{% extends 'templates/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
   <section>
     <p>Hi, my name is Alec. I'm a technology enthusiast who also likes to take a step back from the screen to consider how to be a better human and what makes life meaningful.</p>
     <p>This website is my public learning space and central hub for everything I find interesting. It's minimal on purpose&mdash;I want it simple and to focus only on what's necessary.</p>
@@ -26,9 +8,11 @@
   </section>
 
   <section>
-    <h2>Recent Essays</h2>
+    <h2>Recent Essays <small><a href="essays.html">view all</a></small></h2>
     <ul>
-      <li><a href="lorem.html">Lorem Ipsum</a></li>
+    {%- for essay in essays %}
+      <li><a href="{{ essay.slug[0] }}.html">{{ essay.title[0] }}</a></li>
+    {%- endfor %}
     </ul>
   </section>
 
@@ -41,9 +25,4 @@
       <input type="submit" value="Search">
     </form>
   </section>
-
-  <footer>
-    <p>&copy; 2020 ajs</p>
-  </footer>
-</body>
-</html>
+{% endblock %}
