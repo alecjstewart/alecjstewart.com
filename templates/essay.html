@@ -4,7 +4,7 @@
   <article>
     <h2>{{ essay.title[0] }}</h2>
     <time datetime="{{ essay.date_str[0] }}">Posted on {{ essay.date[0] }} at {{ essay.time[0] }}</time>
-    {{ content }}
+    {{ content | indent(width=4) }}
   </article>
 
   <section>

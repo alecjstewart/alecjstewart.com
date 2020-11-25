@@ -6,7 +6,11 @@
     <ul class="tweets">
     {%- for tweet in tweets %}
       <li>{{ tweet.created_at }}
-        <ul><li>{{ tweet.text }}</li></ul>
+        <ul>
+          <li>
+            {{ tweet.text | indent(width=12) }}
+          </li>
+        </ul>
       </li>
     {%- endfor %}
     </ul>
