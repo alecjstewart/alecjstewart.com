@@ -3,6 +3,7 @@ import re
 import boto3
 import shutil
 import markdown
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from boto3.dynamodb.conditions import Key, Attr
 
@@ -23,26 +24,6 @@ def tweets_from_aws():
   return sorted_tweets
 
 
-def get_essays():
-  essays = {}
-  essays_dir = '{}/essays/'.format(PROJECT_DIR)
-
-  for markdown_essay in os.listdir(essays_dir):
-    file_path = os.path.join(essays_dir, markdown_essay)
-
-    with open(file_path, 'r') as f:
-      md = markdown.Markdown(extensions = ['meta'])
-      html = md.convert(f.read())
-      essays[markdown_essay] = [md.Meta, html]
-
-  # dict = {'title.md': [metadata, content]}
-  # t[1] is the value (i.e. [metadata, content])
-  # t[1][0] is the first item in the list (i.e. metadata)
-  # t[1][0]['date_str'] is the sort key we want in the metadata dict
-  sorted_essays = sorted(essays.items(), reverse=True, key=lambda i: i[1][0]['date_str'])
-  return sorted_essays
-
-
 def url_to_anchor(tweets):
   for tweet in tweets:
     links = re.findall(r'(https?://[^\s]+)', tweet['text'])
@@ -58,17 +39,60 @@ def copy_static_assets():
   shutil.copytree('{}/images'.format(PROJECT_DIR), '{}/images'.format(BUILD_DIR))
 
 
-if __name__ == '__main__':
-  copy_static_assets()
+def get_essays():
+  essays = {}
+  essays_dir = '{}/essays/'.format(PROJECT_DIR)
 
-  sorted_tweets = tweets_from_aws()
-  html_tweets = url_to_anchor(sorted_tweets)
+  for markdown_essay in os.listdir(essays_dir):
+    file_path = os.path.join(essays_dir, markdown_essay)
 
-  sorted_essays = get_essays()
-  essays_metadata = [essay[1][0] for essay in sorted_essays]
+    with open(file_path, 'r') as f:
+      md = markdown.Markdown(extensions = ['meta'])
+      html = md.convert(f.read())
+      
+      posted = datetime.strptime(md.Meta['posted_date'][0], '%Y-%m-%dT%H:%M:%SZ')
+      md.Meta['posted_date_str'] = [posted.strftime('%d %B %Y')]
+      md.Meta['posted_date_time'] = [posted.strftime('%H:%M')]
 
-  env = Environment(loader=FileSystemLoader(PROJECT_DIR))
+      if 'updated_date' in md.Meta:
+        updated = datetime.strptime(md.Meta['updated_date'][0], '%Y-%m-%dT%H:%M:%SZ')
+        md.Meta['updated_date_str'] = [updated.strftime('%d %B %Y')]
+        md.Meta['updated_date_time'] = [updated.strftime('%H:%M')]
 
+      essays[markdown_essay] = [md.Meta, html]
+
+  # dict = {'title.md': [metadata, content]}
+  # i[1] is the value (i.e. [metadata, content])
+  # i[1][0] is the first item in the list (i.e. metadata)
+  # i[1][0]['posted_date'] is the sort key we want in the metadata dict
+  sorted_essays = sorted(essays.items(), reverse=True, key=lambda i: i[1][0]['posted_date'])
+  return sorted_essays
+
+
+def generate_feed(env, essays_metadata):
+  template = env.get_template('feed.xml')
+
+  now = datetime.utcnow()
+  date_string = now.strftime('%Y-%m-%dT%H:%M:%SZ')
+
+  xml = template.render(feed=essays_metadata, updated=date_string)
+
+  with open('{}/feed.xml'.format(BUILD_DIR), 'w') as build_file:
+    build_file.write(xml)
+
+
+def generate_essays(env, sorted_essays):
+  template = env.get_template('templates/essay.html')
+
+  for essay in sorted_essays:
+    html = template.render(essay=essay[1][0], content=essay[1][1])
+
+    file_name = '{}.html'.format(essay[1][0]['slug'][0])
+    with open('{}/{}'.format(BUILD_DIR, file_name), 'w') as build_file:
+      build_file.write(html)
+
+
+def generate_root(env, essays_metadata, html_tweets):
   for f in os.listdir(PROJECT_DIR):
     if f.endswith('.html'):
       template = env.get_template(f)
@@ -85,10 +109,18 @@ if __name__ == '__main__':
       with open('{}/{}'.format(BUILD_DIR, f), 'w') as build_file:
         build_file.write(html)
 
-  template = env.get_template('templates/essay.html')
-  for essay in sorted_essays:
-    html = template.render(essay=essay[1][0], content=essay[1][1])
 
-    file_name = '{}.html'.format(essay[1][0]['slug'][0])
-    with open('{}/{}'.format(BUILD_DIR, file_name), 'w') as build_file:
-      build_file.write(html)
+if __name__ == '__main__':
+  env = Environment(loader=FileSystemLoader(PROJECT_DIR))
+
+  copy_static_assets()
+
+  sorted_tweets = tweets_from_aws()
+  html_tweets = url_to_anchor(sorted_tweets)
+
+  sorted_essays = get_essays()
+  essays_metadata = [essay[1][0] for essay in sorted_essays]
+
+  generate_root(env, essays_metadata, html_tweets)
+  generate_essays(env, sorted_essays)
+  generate_feed(env, essays_metadata)

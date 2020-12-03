@@ -1,8 +1,7 @@
 title: Lorem Ipsum
-date_str: 2020-11-22 17:56
-date: 22 November 2020
-time: 17:56
 slug: lipsum
+posted_date: 2020-11-23T00:56:00Z
+summary: A publication test using an online Lorem Ipsum generator.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor risus, suscipit id imperdiet vitae, mollis et velit. Curabitur in mi in sapien porttitor placerat nec sed enim. Fusce eu pharetra metus. Sed ultricies tortor ac ligula euismod, at placerat eros blandit. Donec faucibus est non consectetur mollis. Donec volutpat diam nec arcu aliquam, ac aliquet sem bibendum. Aenean ac posuere neque. Duis a dolor vitae libero porta dictum. Nam finibus ut libero nec ultrices.
 

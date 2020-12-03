@@ -3,7 +3,12 @@
 {% block content %}
   <article>
     <h2>{{ essay.title[0] }}</h2>
-    <time datetime="{{ essay.date_str[0] }}">Posted on {{ essay.date[0] }} at {{ essay.time[0] }}</time>
+    {%- if 'updated_date' in essay %}
+    <time datetime="{{ essay.updated_date[0] }}">Posted on {{ essay.posted_date_str[0] }} at {{ essay.posted_date_time[0] }} UTC &bull; <strong>Updated on {{ essay.updated_date_str[0] }} at {{ essay.updated_date_time[0] }} UTC</strong></time>
+    {%- else %}
+    <time datetime="{{ essay.posted_date[0] }}">Posted on {{ essay.posted_date_str[0] }} at {{ essay.posted_date_time[0] }} UTC</time>
+    {%- endif %}
+
     {{ content | indent(width=4) }}
   </article>
 

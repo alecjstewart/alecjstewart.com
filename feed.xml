@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Alec J. Stewart's Feed</title>
+  <link href="https://alecjstewart.com/"/>
+  <link href="https://alecjstewart.com/feed.xml" rel="self"/>
+  <updated>{{ updated }}</updated>
+  <author>
+    <name>Alec J. Stewart</name>
+  </author>
+  <id>https://alecjstewart.com/</id>
+  {% for item in feed %}
+  <entry>
+    <title>{{ item.title[0] }}</title>
+    <link href="https://alecjstewart.com/{{ item.slug[0] }}"/>
+    <id>https://alecjstewart.com/{{ item.slug[0] }}</id>
+    {%- if 'updated_date' in item %}
+    <updated>{{ item.updated_date[0] }}</updated>
+    {%- else %}
+    <updated>{{ item.posted_date[0] }}</updated>
+    {%- endif %}
+    <summary>{{ item.summary[0] }}</summary>
+  </entry>
+  {%- endfor %}
+
+</feed>

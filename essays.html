@@ -6,7 +6,7 @@
     <p>All my thoughts, comments, observations, and everything in-between.</p>
     <ul>
     {%- for essay in essays %}
-      <li>{{ essay.date[0] }} &mdash; <a href="{{ essay.slug[0] }}.html">{{ essay.title[0] }}</a></li>
+      <li>{{ essay.posted_date_str[0] }} &mdash; <a href="{{ essay.slug[0] }}.html">{{ essay.title[0] }}</a></li>
     {%- endfor %}
     </ul>
   </section>
