@@ -69,13 +69,13 @@ def get_essays():
   return sorted_essays
 
 
-def generate_feed(env, essays_metadata):
+def generate_feed(env, sorted_essays):
   template = env.get_template('feed.xml')
 
   now = datetime.utcnow()
   date_string = now.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-  xml = template.render(feed=essays_metadata, updated=date_string)
+  xml = template.render(feed=sorted_essays, updated=date_string)
 
   with open('{}/feed.xml'.format(BUILD_DIR), 'w') as build_file:
     build_file.write(xml)
@@ -123,4 +123,4 @@ if __name__ == '__main__':
 
   generate_root(env, essays_metadata, html_tweets)
   generate_essays(env, sorted_essays)
-  generate_feed(env, essays_metadata)
+  generate_feed(env, sorted_essays)

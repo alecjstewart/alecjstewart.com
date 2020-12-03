@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Alec J. Stewart's Feed</title>
+  <title>Alec J. Stewart</title>
   <link href="https://alecjstewart.com/"/>
   <link href="https://alecjstewart.com/feed.xml" rel="self"/>
   <updated>{{ updated }}</updated>
@@ -11,15 +11,18 @@
   <id>https://alecjstewart.com/</id>
   {% for item in feed %}
   <entry>
-    <title>{{ item.title[0] }}</title>
-    <link href="https://alecjstewart.com/{{ item.slug[0] }}"/>
-    <id>https://alecjstewart.com/{{ item.slug[0] }}</id>
+    <title>{{ item[1][0].title[0] }}</title>
+    <link href="https://alecjstewart.com/{{ item[1][0].slug[0] }}"/>
+    <id>https://alecjstewart.com/{{ item[1][0].slug[0] }}</id>
     {%- if 'updated_date' in item %}
-    <updated>{{ item.updated_date[0] }}</updated>
+    <updated>{{ item[1][0].updated_date[0] }}</updated>
     {%- else %}
-    <updated>{{ item.posted_date[0] }}</updated>
+    <updated>{{ item[1][0].posted_date[0] }}</updated>
     {%- endif %}
-    <summary>{{ item.summary[0] }}</summary>
+    <summary>{{ item[1][0].summary[0] }}</summary>
+    <content>
+      {{ item[1][1] | indent(width=6) }}
+    </content>
   </entry>
   {%- endfor %}
 
