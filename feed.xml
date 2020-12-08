@@ -11,16 +11,16 @@
   <id>https://alecjstewart.com/</id>
   {% for item in feed %}
   <entry>
-    <title>{{ item[1][0].title[0] }}</title>
-    <link href="https://alecjstewart.com/{{ item[1][0].slug[0] }}"/>
-    <id>https://alecjstewart.com/{{ item[1][0].slug[0] }}</id>
-    {%- if 'updated_date' in item[1][0] %}
-    <updated>{{ item[1][0].updated_date[0] }}</updated>
+    <title>{{ item.title[0] }}</title>
+    <link href="https://alecjstewart.com/{{ item.slug[0] }}.html"/>
+    <id>https://alecjstewart.com/{{ item.slug[0] }}.html</id>
+    {%- if 'updated_date' in item %}
+    <updated>{{ item.updated_date[0] }}</updated>
     {%- endif %}
-    <published>{{ item[1][0].posted_date[0] }}</published>
-    <summary>{{ item[1][0].summary[0] }}</summary>
+    <published>{{ item.posted_date[0] }}</published>
+    <summary>{{ item.summary[0] }}</summary>
     <content>
-      {{ item[1][1] | indent(width=6) }}
+      {{ item.content[0] | indent(width=6) }}
     </content>
   </entry>
   {%- endfor %}

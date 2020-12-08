@@ -40,7 +40,7 @@ def copy_static_assets():
 
 
 def get_essays():
-  essays = {}
+  essays = []
   essays_dir = '{}/essays/'.format(PROJECT_DIR)
 
   for markdown_essay in os.listdir(essays_dir):
@@ -59,13 +59,11 @@ def get_essays():
         md.Meta['updated_date_str'] = [updated.strftime('%d %B %Y')]
         md.Meta['updated_date_time'] = [updated.strftime('%H:%M')]
 
-      essays[markdown_essay] = [md.Meta, html]
+      md.Meta['filename'] = [markdown_essay]
+      md.Meta['content'] = [html]
+      essays.append(md.Meta)
 
-  # dict = {'title.md': [metadata, content]}
-  # i[1] is the value (i.e. [metadata, content])
-  # i[1][0] is the first item in the list (i.e. metadata)
-  # i[1][0]['posted_date'] is the sort key we want in the metadata dict
-  sorted_essays = sorted(essays.items(), reverse=True, key=lambda i: i[1][0]['posted_date'])
+  sorted_essays = sorted(essays, reverse=True, key=lambda i: i['posted_date'])
   return sorted_essays
 
 
@@ -85,22 +83,20 @@ def generate_essays(env, sorted_essays):
   template = env.get_template('templates/essay.html')
 
   for essay in sorted_essays:
-    html = template.render(essay=essay[1][0], content=essay[1][1])
+    html = template.render(essay=essay)
 
-    file_name = '{}.html'.format(essay[1][0]['slug'][0])
+    file_name = '{}.html'.format(essay['slug'][0])
     with open('{}/{}'.format(BUILD_DIR, file_name), 'w') as build_file:
       build_file.write(html)
 
 
-def generate_root(env, essays_metadata, html_tweets):
+def generate_root(env, sorted_essays, html_tweets):
   for f in os.listdir(PROJECT_DIR):
     if f.endswith('.html'):
       template = env.get_template(f)
 
-      if f == 'index.html':
-        html = template.render(essays=essays_metadata)
-      elif f == 'essays.html':
-        html = template.render(essays=essays_metadata)
+      if f == 'index.html' or f == 'essays.html':
+        html = template.render(essays=sorted_essays)
       elif f == 'tweets.html':
         html = template.render(tweets=html_tweets)
       else:
@@ -119,8 +115,7 @@ if __name__ == '__main__':
   html_tweets = url_to_anchor(sorted_tweets)
 
   sorted_essays = get_essays()
-  essays_metadata = [essay[1][0] for essay in sorted_essays]
 
-  generate_root(env, essays_metadata, html_tweets)
+  generate_root(env, sorted_essays, html_tweets)
   generate_essays(env, sorted_essays)
   generate_feed(env, sorted_essays)

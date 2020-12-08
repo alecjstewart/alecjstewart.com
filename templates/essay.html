@@ -9,7 +9,7 @@
     <time datetime="{{ essay.posted_date[0] }}">Posted on {{ essay.posted_date_str[0] }} at {{ essay.posted_date_time[0] }} UTC</time>
     {%- endif %}
 
-    {{ content | indent(width=4) }}
+    {{ essay.content[0] | indent(width=4) }}
   </article>
 
   <section>
