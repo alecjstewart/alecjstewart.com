@@ -14,7 +14,7 @@
     <title>{{ item[1][0].title[0] }}</title>
     <link href="https://alecjstewart.com/{{ item[1][0].slug[0] }}"/>
     <id>https://alecjstewart.com/{{ item[1][0].slug[0] }}</id>
-    {%- if 'updated_date' in item %}
+    {%- if 'updated_date' in item[1][0] %}
     <updated>{{ item[1][0].updated_date[0] }}</updated>
     {%- endif %}
     <published>{{ item[1][0].posted_date[0] }}</published>
