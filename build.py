@@ -3,9 +3,13 @@ import re
 import boto3
 import shutil
 import markdown
+
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from boto3.dynamodb.conditions import Key, Attr
+
+from dotenv import load_dotenv
+load_dotenv()
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 BUILD_DIR = '{}/_site'.format(PROJECT_DIR)
