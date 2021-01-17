@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang=en>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="icon" href="favicon.png">
-  <title>{% block title %}{% endblock %} &mdash; Alec J. Stewart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" href="favicon.png">
+    <title>{% block title %}{% endblock %} &mdash; Alec J. Stewart</title>
 </head>
 <body>
-  <header>
-    <h1><a href="index.html">Alec J. Stewart</a></h1>
-  </header>
+    <header>
+        <h1><a href="index.html">Alec J. Stewart</a></h1>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="essays.html">Essays</a></li>
-    </ul>
-  </nav>
-  {% block content %}{% endblock %}
-  <footer>
-    <p>&copy; 2020 ajs</p>
-  </footer>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="essays.html">Essays</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer>
+        <p>&copy; 2020 ajs</p>
+    </footer>
 </body>
 </html>

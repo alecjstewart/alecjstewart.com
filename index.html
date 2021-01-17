@@ -1,28 +1,28 @@
 {% extends 'templates/base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-  <section>
-    <p>Hi, my name is Alec. I'm a technology enthusiast who also likes to take a step back from the screen to consider how to be a better human and what makes life meaningful.</p>
-    <p>This website is my public learning space and central hub for everything I find interesting. It's minimal on purpose&mdash;I want it simple and to focus only on what's necessary.</p>
-    <p>If you want to stick around, you can read more <a href="about.html">about me</a> or <a href="essays.html">the notes I felt were worth sharing.</a></p>
-  </section>
+    <section>
+        <p>Hi, my name is Alec. I'm a technology enthusiast who also likes to take a step back from the screen to consider how to be a better human and what makes life meaningful.</p>
+        <p>This website is my public learning space and central hub for everything I find interesting. It's minimal on purpose&mdash;I want it simple and to focus only on what's necessary.</p>
+        <p>If you want to stick around, you can read more <a href="about.html">about me</a> or <a href="essays.html">the notes I felt were worth sharing.</a></p>
+    </section>
 
-  <section>
-    <h2>Recent Essays <small><a href="essays.html">view all</a></small></h2>
-    <ul>
-    {%- for essay in essays %}
-      <li><a href="{{ essay.slug[0] }}.html">{{ essay.title[0] }}</a></li>
-    {%- endfor %}
-    </ul>
-  </section>
+    <section>
+        <h2>Recent Essays <small><a href="essays.html">view all</a></small></h2>
+        <ul>
+        {%- for essay in essays %}
+            <li><a href="{{ essay.slug[0] }}.html">{{ essay.title[0] }}</a></li>
+        {%- endfor %}
+        </ul>
+    </section>
 
-  <section>
-    <h2>Search</h2>
-    <form action="https://duckduckgo.com/" method="get">
-      <label for="q">Search alecjstewart.com for anything:</label>
-      <input type="text" name="q" value="">
-      <input type="hidden" name="sites" value="alecjstewart.com">
-      <input type="submit" value="Search">
-    </form>
-  </section>
+    <section>
+        <h2>Search</h2>
+        <form action="https://duckduckgo.com/" method="get">
+            <label for="q">Search alecjstewart.com for anything:</label>
+            <input type="text" name="q" value="">
+            <input type="hidden" name="sites" value="alecjstewart.com">
+            <input type="submit" value="Search">
+        </form>
+    </section>
 {% endblock %}

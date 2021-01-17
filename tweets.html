@@ -1,18 +1,18 @@
 {% extends 'templates/base.html' %}
 {% block title %}Tweets{% endblock %}
 {% block content %}
-  <section>
-    <h2>Tweets</h2>
-    <ul class="tweets">
-    {%- for tweet in tweets %}
-      <li>{{ tweet.created_at }}
-        <ul>
-          <li>
-            {{ tweet.text | indent(width=12) }}
-          </li>
+    <section>
+        <h2>Tweets</h2>
+        <ul class="tweets">
+        {%- for tweet in tweets %}
+            <li>{{ tweet.created_at }}
+                <ul>
+                    <li>
+                        {{ tweet.text | indent(width=12) }}
+                    </li>
+                </ul>
+            </li>
+        {%- endfor %}
         </ul>
-      </li>
-    {%- endfor %}
-    </ul>
-  </section>
+    </section>
 {% endblock %}

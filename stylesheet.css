@@ -1,102 +1,102 @@
 /* Site Content */
 body {
-  font-family: Open Sans,Arial;
-  color: #454545;
-  font-size: 16px;
-  margin: 2em auto;
-  max-width: 800px;
-  padding: 1em;
-  line-height: 1.4;
-  text-align: justify;
+    font-family: Open Sans,Arial;
+    color: #454545;
+    font-size: 16px;
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 1em;
+    line-height: 1.4;
+    text-align: justify;
 }
 
 /* Defaults */
 a {
-  color: #cc5500;
+    color: #cc5500;
 }
 nav {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 blockquote {
-  font-style: italic;
-  border-left: 5px solid #cc5500;
-  padding: 0 1rem;
+    font-style: italic;
+    border-left: 5px solid #cc5500;
+    padding: 0 1rem;
 }
 blockquote:before {
-  color: #cc5500;
-  content: open-quote;
-  font-size: 3em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+    color: #cc5500;
+    content: open-quote;
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
 blockquote p {
-  display: inline;
-  margin: 0;
+    display: inline;
+    margin: 0;
 }
 small {
-  margin-left: 1.5em;
-  font-size: 16px;
-  font-weight: normal;
+    margin-left: 1.5em;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 /* Header and Navigation */
 header h1 {
-  margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem 0;
 }
 header h1 a {
-  color: #454545;
-  text-decoration: none;
+    color: #454545;
+    text-decoration: none;
 }
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 nav li {
-  display: inline;
-  margin-left: 1rem;
+    display: inline;
+    margin-left: 1rem;
 }
 nav li:first-child {
-  margin: 0;
+    margin: 0;
 }
 
 /* Essays */
 article h2 {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 time {
-  color: #b8b8b8;
+    color: #b8b8b8;
 }
 
 /* Footer */
 footer {
-  margin-top: 2rem;
-  color: #b8b8b8;
+    margin-top: 2rem;
+    color: #b8b8b8;
 }
 
 /* Misc */
 .center {
-  text-align: center;
+    text-align: center;
 }
 .headshot {
-  max-height: 300px;
-  max-width: 75%;
-  border-radius: 50%;
+    max-height: 300px;
+    max-width: 75%;
+    border-radius: 50%;
 }
 .tweets li ul li {
-  list-style-type: none;
+    list-style-type: none;
 }
 .tweets li:not(:first-child) {
-  margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 .tweets li ul {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 /* Media Queries */
 @media screen and (max-width:500px) {
-  body {
-   text-align: left;
-  }
+    body {
+        text-align: left;
+    }
 }
