@@ -40,6 +40,7 @@ def url_to_anchor(tweets):
 def copy_static_assets():
     shutil.copy2('{}/stylesheet.css'.format(PROJECT_DIR), BUILD_DIR)
     shutil.copy2('{}/favicon.png'.format(PROJECT_DIR), BUILD_DIR)
+    shutil.copy2('{}/ajs_pubkey.asc'.format(PROJECT_DIR), BUILD_DIR)
     shutil.copytree('{}/images'.format(PROJECT_DIR), '{}/images'.format(BUILD_DIR))
 
 
