@@ -44,12 +44,12 @@ def copy_static_assets():
     shutil.copytree('{}/images'.format(PROJECT_DIR), '{}/images'.format(BUILD_DIR))
 
 
-def get_essays():
-    essays = []
-    essays_dir = '{}/essays/'.format(PROJECT_DIR)
+def get_notes():
+    notes = []
+    notes_dir = '{}/notes/'.format(PROJECT_DIR)
 
-    for markdown_essay in os.listdir(essays_dir):
-        file_path = os.path.join(essays_dir, markdown_essay)
+    for markdown_note in os.listdir(notes_dir):
+        file_path = os.path.join(notes_dir, markdown_note)
 
         with open(file_path, 'r') as f:
             md = markdown.Markdown(extensions = ['meta'])
@@ -64,44 +64,44 @@ def get_essays():
                 md.Meta['updated_date_str'] = [updated.strftime('%d %B %Y')]
                 md.Meta['updated_date_time'] = [updated.strftime('%H:%M')]
 
-            md.Meta['filename'] = [markdown_essay]
+            md.Meta['filename'] = [markdown_note]
             md.Meta['content'] = [html]
-            essays.append(md.Meta)
+            notes.append(md.Meta)
 
-    sorted_essays = sorted(essays, reverse=True, key=lambda i: i['posted_date'])
-    return sorted_essays
+    sorted_notes = sorted(notes, reverse=True, key=lambda i: i['posted_date'])
+    return sorted_notes
 
 
-def generate_feed(env, sorted_essays):
+def generate_feed(env, sorted_notes):
     template = env.get_template('feed.xml')
 
     now = datetime.utcnow()
     date_string = now.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-    xml = template.render(feed=sorted_essays, updated=date_string)
+    xml = template.render(feed=sorted_notes, updated=date_string)
 
     with open('{}/feed.xml'.format(BUILD_DIR), 'w') as build_file:
         build_file.write(xml)
 
 
-def generate_essays(env, sorted_essays):
-    template = env.get_template('templates/essay.html')
+def generate_notes(env, sorted_notes):
+    template = env.get_template('templates/note.html')
 
-    for essay in sorted_essays:
-        html = template.render(essay=essay)
+    for note in sorted_notes:
+        html = template.render(note=note)
 
-        file_name = '{}.html'.format(essay['slug'][0])
+        file_name = '{}.html'.format(note['slug'][0])
         with open('{}/{}'.format(BUILD_DIR, file_name), 'w') as build_file:
             build_file.write(html)
 
 
-def generate_root(env, sorted_essays, html_tweets):
+def generate_root(env, sorted_notes, html_tweets):
     for f in os.listdir(PROJECT_DIR):
         if f.endswith('.html'):
             template = env.get_template(f)
 
-            if f == 'index.html' or f == 'essays.html':
-                html = template.render(essays=sorted_essays)
+            if f == 'index.html' or f == 'notes.html':
+                html = template.render(notes=sorted_notes)
             elif f == 'tweets.html':
                 html = template.render(tweets=html_tweets)
             else:
@@ -119,8 +119,8 @@ if __name__ == '__main__':
     sorted_tweets = tweets_from_aws()
     html_tweets = url_to_anchor(sorted_tweets)
 
-    sorted_essays = get_essays()
+    sorted_notes = get_notes()
 
-    generate_root(env, sorted_essays, html_tweets)
-    generate_essays(env, sorted_essays)
-    generate_feed(env, sorted_essays)
+    generate_root(env, sorted_notes, html_tweets)
+    generate_notes(env, sorted_notes)
+    generate_feed(env, sorted_notes)
