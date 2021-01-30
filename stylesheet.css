@@ -9,6 +9,16 @@ body {
     line-height: 1.4;
     text-align: justify;
 }
+body.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
+body.dark-mode a {
+    color: #ffab91;
+}
+body.dark-mode header h1 a {
+    color: #eee;
+}
 
 /* Defaults */
 a {
@@ -75,6 +85,20 @@ footer {
     color: #b8b8b8;
 }
 
+/* Dark Mode */
+.btn-toggle {
+    color: #121212;
+    background-color: #eee;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: .8em;
+    border: 0;
+    padding: 2px 5px;
+}
+
 /* Misc */
 .center {
     text-align: center;
@@ -98,5 +122,8 @@ footer {
 @media screen and (max-width:500px) {
     body {
         text-align: left;
+    }
+    .btn-toggle {
+        position: absolute;
     }
 }
