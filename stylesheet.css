@@ -78,6 +78,14 @@ article h2 {
 time {
     color: #b8b8b8;
 }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: 2rem;
+}
+td time {
+    padding-right: 1rem;
+}
 
 /* Footer */
 footer {

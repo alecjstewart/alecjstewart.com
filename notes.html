@@ -4,10 +4,17 @@
     <section>
         <h2>Notes</h2>
         <p>All my thoughts, comments, observations, and everything in-between.</p>
-        <ul>
-        {%- for note in notes %}
-            <li>{{ note.posted_date_str[0] }} &mdash; <a href="{{ note.slug[0] }}.html">{{ note.title[0] }}</a></li>
-        {%- endfor %}
-        </ul>
+
+        <table>
+            <tbody>
+            {%- for note in notes %}
+                <tr>
+                    <td><time>{{ note.posted_date_str[0] }}</time></td>
+                    <td><a href="{{ note.slug[0] }}.html">{{ note.title[0] }}</a></td>
+                </tr>
+            {%- endfor %}
+            </tbody>
+        </table>
+
     </section>
 {% endblock %}
