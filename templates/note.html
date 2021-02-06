@@ -1,12 +1,12 @@
-{% extends 'templates/base.html' %}
+{% extends 'base.html' %}
 {% block title %}{{ note.title[0] }}{% endblock %}
 {% block content %}
     <article>
         <h2>{{ note.title[0] }}</h2>
         {%- if 'updated_date' in note %}
-        <time datetime="{{ note.updated_date[0] }}">Posted on {{ note.posted_date_str[0] }} at {{ note.posted_date_time[0] }} UTC &bull; <strong>Updated on {{ note.updated_date_str[0] }} at {{ note.updated_date_time[0] }} UTC</strong></time>
+        <time datetime="{{ note.updated_date[0] }}">Posted on {{ note.posted_date_str[0] }} &bull; <strong>Updated on {{ note.updated_date_str[0] }}</strong></time>
         {%- else %}
-        <time datetime="{{ note.posted_date[0] }}">Posted on {{ note.posted_date_str[0] }} at {{ note.posted_date_time[0] }} UTC</time>
+        <time datetime="{{ note.posted_date[0] }}">Posted on {{ note.posted_date_str[0] }}</time>
         {%- endif %}
 
         {{ note.content[0] | indent(width=8) }}

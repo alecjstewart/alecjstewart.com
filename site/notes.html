@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png">
-    {%- if self.title() %}
-    <title>{% block title %}{% endblock %} &mdash; Alec J. Stewart</title>
-    {%- else %}
-    <title>Alec J. Stewart</title>
-    {%- endif %}
+    <title>Notes &mdash; Alec J. Stewart</title>
 </head>
 <body>
     <header>
@@ -24,7 +20,22 @@
             <li><a href="notes.html">Notes</a></li>
         </ul>
     </nav>
-    {% block content %}{% endblock %}
+    
+    <section>
+        <h2>Notes</h2>
+        <p>All my thoughts, comments, observations, and everything in-between.</p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td><time>November 23, 2020</time></td>
+                    <td><a href="lipsum.html">Lorem Ipsum</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
     <footer>
         <p>&copy; 2021 ajs &middot; <a href="feed.xml">rss</a></p>
     </footer>

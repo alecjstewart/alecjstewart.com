@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png">
-    {%- if self.title() %}
-    <title>{% block title %}{% endblock %} &mdash; Alec J. Stewart</title>
-    {%- else %}
-    <title>Alec J. Stewart</title>
-    {%- endif %}
+    <title>Page Not Found &mdash; Alec J. Stewart</title>
 </head>
 <body>
     <header>
@@ -24,7 +20,11 @@
             <li><a href="notes.html">Notes</a></li>
         </ul>
     </nav>
-    {% block content %}{% endblock %}
+    
+    <section>
+        <p>Uh oh. Looks like this page can't be found.</p>
+    </section>
+
     <footer>
         <p>&copy; 2021 ajs &middot; <a href="feed.xml">rss</a></p>
     </footer>

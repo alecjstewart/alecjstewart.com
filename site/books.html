@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png">
-    {%- if self.title() %}
-    <title>{% block title %}{% endblock %} &mdash; Alec J. Stewart</title>
-    {%- else %}
-    <title>Alec J. Stewart</title>
-    {%- endif %}
+    <title>Books &mdash; Alec J. Stewart</title>
 </head>
 <body>
     <header>
@@ -24,7 +20,22 @@
             <li><a href="notes.html">Notes</a></li>
         </ul>
     </nav>
-    {% block content %}{% endblock %}
+    
+    <section>
+        <h2>Books</h2>
+
+        <h3>Currently Reading</h3>
+        <ul>
+            <li><em>Foundation</em> by Isaac Asimov</li>
+        </ul>
+
+        <h3>Read</h3>
+        <ul>
+            <li><em>How to Live on 24 Hours a Day</em> by Arnold Bennett <strong>(5/10)</strong></li>
+            <li><em>Digital Minimalism: Choosing a Focused Life in a Noisy World</em> by Cal Newport <strong>(8/10)</strong></li>
+        </ul>
+    </section>
+
     <footer>
         <p>&copy; 2021 ajs &middot; <a href="feed.xml">rss</a></p>
     </footer>

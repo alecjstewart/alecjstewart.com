@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" href="favicon.png">
+    <title>Lorem Ipsum &mdash; Alec J. Stewart</title>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Alec J. Stewart</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notes.html">Notes</a></li>
+        </ul>
+    </nav>
+    
+    <article>
+        <h2>Lorem Ipsum</h2>
+        <time datetime="2020-11-23T00:56:00Z">Posted on November 23, 2020</time>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor risus, suscipit id imperdiet vitae, mollis et velit. Curabitur in mi in sapien porttitor placerat nec sed enim. Fusce eu pharetra metus. Sed ultricies tortor ac ligula euismod, at placerat eros blandit. Donec faucibus est non consectetur mollis. Donec volutpat diam nec arcu aliquam, ac aliquet sem bibendum. Aenean ac posuere neque. Duis a dolor vitae libero porta dictum. Nam finibus ut libero nec ultrices.</p>
+        <p>Nunc tempor cursus tellus, ac varius metus gravida eget. Nam sollicitudin sollicitudin massa, ut dignissim massa tincidunt in. Phasellus non tortor ac nisl scelerisque dapibus. Curabitur maximus lacus vel lectus varius pharetra. Aenean congue leo at erat sodales commodo. Proin vel nisi ac sapien sagittis ornare. Sed placerat, magna in tincidunt fermentum, tellus erat elementum elit, et porta ante neque ut ante. Sed quis nisi id augue dictum semper. Cras in ante consectetur metus venenatis vestibulum.</p>
+        <p>Nam imperdiet nulla id luctus fringilla. Suspendisse vulputate massa a ante porttitor, in suscipit neque tincidunt. Suspendisse tortor felis, semper vel enim ac, pulvinar aliquet lectus. Nam vulputate, nunc in porta egestas, libero urna tristique nisi, id rutrum massa nunc quis neque. Mauris vitae venenatis metus. Morbi sollicitudin pulvinar ipsum quis tristique. Sed molestie nisi velit, malesuada ullamcorper metus condimentum in. Quisque et felis fringilla, aliquam augue sed, eleifend enim. Cras tempus lacus quis eros elementum, eu faucibus nibh placerat. Etiam non augue cursus, lobortis urna vel, gravida erat. In sed ultricies purus. Sed pharetra finibus sollicitudin. Suspendisse rhoncus elementum dolor, at elementum urna pellentesque quis.</p>
+        <p>Integer orci orci, consequat et pharetra non, eleifend nec mauris. Pellentesque eu magna nunc. Maecenas ullamcorper, nisi sit amet tempus vehicula, leo nulla sagittis odio, non ultrices neque diam eu nibh. Vestibulum luctus libero non nisi auctor, pharetra laoreet mauris porttitor. Pellentesque pharetra nisl eu lorem placerat ultrices. Nullam tincidunt, odio eu efficitur pellentesque, tortor mauris bibendum magna, sit amet aliquam nulla libero a erat. Integer eget congue metus, non venenatis elit.</p>
+        <p>Nulla facilisi. Nulla sed diam imperdiet, vehicula mauris in, accumsan mi. Praesent lorem arcu, accumsan in rhoncus eget, sollicitudin sit amet velit. Integer bibendum nisi eget eros rutrum dignissim. Suspendisse viverra eros pretium, ultricies ante et, interdum nunc. Sed lobortis tristique finibus. Etiam porta augue et ligula accumsan, in consequat magna varius.</p>
+    </article>
+
+    <section>
+        <p class="center"><i>Questions, comments, or concerns on this note? Send me an email: <strong>alec [at] alecjstewart.com</strong></i></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2021 ajs &middot; <a href="feed.xml">rss</a></p>
+    </footer>
+
+    <button class="btn-toggle"></button>
+    <script>
+        const btn = document.querySelector(".btn-toggle");
+
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark") {
+            document.body.classList.add("dark-mode");
+            btn.innerHTML = "Light Mode";
+        } else {
+            btn.innerHTML = "Dark Mode";
+        }
+
+        btn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+                theme = "dark";
+                btn.innerHTML = "Light Mode";
+            } else {
+                btn.innerHTML = "Dark Mode";
+            }
+            localStorage.setItem("theme", theme);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Books{% endblock %}
+{% block content %}
+    <section>
+        <h2>Books</h2>
+
+        <h3>Currently Reading</h3>
+        <ul>
+        {%- for book in books_reading %}
+            <li><em>{{ book.title }}</em> by {{ book.author_firstname }} {{ book.author_lastname }}</li>
+        {%- endfor %}
+        </ul>
+
+        <h3>Read</h3>
+        <ul>
+        {%- for book in books_read %}
+            {%- if book.review_link == '' %}
+            <li><em>{{ book.title }}</em> by {{ book.author_firstname }} {{ book.author_lastname }} <strong>({{ book.rating }}/10)</strong></li>
+            {%- else %}
+            <li><em>{{ book.title }}</em> by {{ book.author_firstname }} {{ book.author_lastname }} <strong>({{ book.rating }}/10)</strong> &mdash; <a href="{{ book.review_link }}">review</a></li>
+            {%- endif %}
+        {%- endfor %}
+        </ul>
+    </section>
+{% endblock %}
