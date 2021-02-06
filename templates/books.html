@@ -15,18 +15,19 @@
         <ul id="books">
         {%- for book in books_read %}
             {%- if book.review_link == '' %}
-            <li><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <span class="book-rating">({{ book.rating }}/10)</span></li>
+            <li><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong></li>
             {%- else %}
-            <li><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <span class="book-rating">({{ book.rating }}/10)</span> &mdash; <a href="{{ book.review_link }}">review</a></li>
+            <li><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong> &mdash; <a href="{{ book.review_link }}">review</a></li>
             {%- endif %}
         {%- endfor %}
         </ul>
         <script>
             // Adapted from https://www.w3schools.com/howto/howto_js_sort_list.asp
             function sortList(sortOn) {
-                var list, i, switching, b, shouldSwitch;
+                var list, i, switching, b, shouldSwitch, x, y, dir, switchcount = 0;
                 list = document.getElementById("books");
                 switching = true;
+                dir = "asc";
 
                 while (switching) {
                     switching = false;
@@ -34,14 +35,36 @@
 
                     for (i = 0; i < (b.length - 1); i++) {
                         shouldSwitch = false;
-                        if (b[i].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase() > b[i + 1].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase()) {
-                            shouldSwitch = true;
-                            break;
+
+                        if (sortOn == 'rating') {
+                            x = Number(b[i].getElementsByClassName('book-' + sortOn)[0].innerHTML);
+                            y = Number(b[i + 1].getElementsByClassName('book-' + sortOn)[0].innerHTML);
+                        } else {
+                            x = b[i].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase();
+                            y = b[i + 1].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase();
+                        }
+
+                        if (dir == 'asc') {
+                            if (x > y) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else if (dir == 'desc') {
+                            if (x < y) {
+                                shouldSwitch = true;
+                                break;
+                            }
                         }
                     }
                     if (shouldSwitch) {
                         b[i].parentNode.insertBefore(b[i + 1], b[i]);
                         switching = true;
+                        switchcount++;
+                    } else {
+                        if (switchcount == 0 && dir == "asc") {
+                            dir = "desc";
+                            switching = true;
+                        }
                     }
                 }
             }
