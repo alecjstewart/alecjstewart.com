@@ -14,7 +14,9 @@ body.dark-mode {
     color: #eee;
 }
 body.dark-mode a,
-body.dark-mode button[class^='btn-'] {
+body.dark-mode button[class='btn-author'],
+body.dark-mode button[class='btn-rating'],
+body.dark-mode button[class='btn-title'] {
     color: #ffab91;
 }
 body.dark-mode header h1 a {
