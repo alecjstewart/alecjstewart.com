@@ -29,11 +29,110 @@
             <li><em>Foundation</em> by Isaac Asimov</li>
         </ul>
 
-        <h3>Read</h3>
-        <ul>
-            <li><em>How to Live on 24 Hours a Day</em> by Arnold Bennett <strong>(5/10)</strong></li>
-            <li><em>Digital Minimalism: Choosing a Focused Life in a Noisy World</em> by Cal Newport <strong>(8/10)</strong></li>
+        <h3>Read <small>sort by <button class="btn-author" onclick="sortList('author')">author</button>, <button class="btn-rating" onclick="sortList('rating')">rating</button>, or <button class="btn-title" onclick="sortList('title')">title</button></small></h3>
+        <ul id="books">
+            <li><span class="book-title">1984</span> by George <span class="book-author">Orwell</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">A Man Called Ove</span> by Fredrik <span class="book-author">Backman</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">A Message to Garcia: And Other Classic Success Writings</span> by Elbert <span class="book-author">Hubbard</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">A Tree Grows in Brooklyn</span> by Betty <span class="book-author">Smith</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Anthem</span> by Ayn <span class="book-author">Rand</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Becoming</span> by Michelle <span class="book-author">Obama</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Brave New World</span> by Aldous <span class="book-author">Huxley</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">Braving the Wilderness: The Quest for True Belonging and the Courage to Stand Alone</span> by Brene <span class="book-author">Brown</span> <span class="book-rating">(5/10)</span></li>
+            <li><span class="book-title">Coach Wooden and Me: Our 50-Year Friendship On and Off the Court</span> by Kareem <span class="book-author">Abdul-Jabbar</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">Dark Territory: The Secret History of Cyber War</span> by Fred <span class="book-author">Kaplan</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Deep Work: Rules for Focused Success in a Distracted World</span> by Cal <span class="book-author">Newport</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">Departure</span> by A.G. <span class="book-author">Riddle</span> <span class="book-rating">(4/10)</span></li>
+            <li><span class="book-title">Digital Minimalism: Choosing a Focused Life in a Noisy World</span> by Cal <span class="book-author">Newport</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">East of Eden</span> by John <span class="book-author">Steinbeck</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">Educated</span> by Tara <span class="book-author">Westover</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">Emotional Intelligence 2.0</span> by Travis <span class="book-author">Bradberry</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Extreme Ownership: How U.S. Navy SEALs Lead and Win</span> by Jocko <span class="book-author">Willink</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Fahrenheit 451</span> by Ray <span class="book-author">Bradbury</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">Flowers for Algernon</span> by Daniel <span class="book-author">Keyes</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">Gates of Fire</span> by Steven <span class="book-author">Pressfield</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">Harry Potter and the Sorcerer's Stone</span> by J.K. <span class="book-author">Rowling</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">How to Live on 24 Hours a Day</span> by Arnold <span class="book-author">Bennett</span> <span class="book-rating">(5/10)</span></li>
+            <li><span class="book-title">How to Raise an Adult: Break Free of the Overparenting Trap and Prepare Your Kid for Success</span> by Julie <span class="book-author">Lythcott-Haims</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Invisible Man</span> by Ralph <span class="book-author">Ellison</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Leadership 101: What Every Leader Needs to Know</span> by John C. <span class="book-author">Maxwell</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Letters from a Self-Made Merchant to his Son</span> by George <span class="book-author">Lorimer</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Living Life to the Fullest, with No Excuses</span> by Noah <span class="book-author">Galloway</span> <span class="book-rating">(3/10)</span></li>
+            <li><span class="book-title">Love Does: Discover a Secretly Incredible Life in an Ordinary World</span> by Bob <span class="book-author">Goff</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Make Your Bed: Little Things That Can Change Your Life...And Maybe the World</span> by William H. <span class="book-author">McRaven</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Man's Search for Meaning</span> by Viktor E. <span class="book-author">Frankl</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Mere Christianity</span> by C.S. <span class="book-author">Lewis</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Mindset: The New Psychology of Success</span> by Carol S. <span class="book-author">Dweck</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">No Time to Spare: Thinking About What Matters</span> by Ursula K. <span class="book-author">Le Guin</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Nonviolent Communication: A Language of Life</span> by Marshall B. <span class="book-author">Rosenberg</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">On Writing: A Memoir of the Craft</span> by Stephen <span class="book-author">King</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Option B: Facing Adversity, Building Resilience, and Finding Joy</span> by Sheryl <span class="book-author">Sandberg</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Outliers: The Story of Success</span> by Malcolm <span class="book-author">Gladwell</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Quiet: The Power of Introverts in a World That Can't Stop Talking</span> by Susan <span class="book-author">Cain</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Ready Player One</span> by Ernest <span class="book-author">Cline</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Siddhartha</span> by Hermann <span class="book-author">Hesse</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Skin in the Game: The Hidden Asymmetries in Daily Life</span> by Nassim Nicholas <span class="book-author">Taleb</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">Slaughterhouse-Five</span> by Kurt <span class="book-author">Vonnegut Jr.</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">So Good They Can't Ignore You: Why Skills Trump Passion in the Quest for Work You Love</span> by Cal <span class="book-author">Newport</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Team of Teams: New Rules of Engagement for a Complex World</span> by Stanley <span class="book-author">McChrystal</span> <span class="book-rating">(4/10)</span></li>
+            <li><span class="book-title">The 5 Levels of Leadership: Proven Steps to Maximize Your Potential</span> by John C. <span class="book-author">Maxwell</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Abolition of Man</span> by C.S. <span class="book-author">Lewis</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">The Alchemist</span> by Paulo <span class="book-author">Coelho</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">The Book Thief</span> by Markus <span class="book-author">Zusak</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics</span> by Daniel James <span class="book-author">Brown</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">The Brief Wondrous Life of Oscar Wao</span> by Junot <span class="book-author">Diaz</span> <span class="book-rating">(5/10)</span></li>
+            <li><span class="book-title">The Catcher in the Rye</span> by J.D. <span class="book-author">Salinger</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Count of Monte Cristo</span> by Alexandre <span class="book-author">Dumas</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">The Death of Ivan Ilyich</span> by Leo <span class="book-author">Tolstoy</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Elements of Investing</span> by Burton G. <span class="book-author">Malkiel</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Fellowship of the Ring</span> by J.R.R. <span class="book-author">Tolkien</span> <span class="book-rating">(9/10)</span></li>
+            <li><span class="book-title">The Five People You Meet in Heaven</span> by Mitch <span class="book-author">Albom</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">The Glass Cage: Automation and Us</span> by Nicholas <span class="book-author">Carr</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Great Divorce</span> by C.S. <span class="book-author">Lewis</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">The Great Gatsby</span> by F. Scott <span class="book-author">Fitzgerald</span> <span class="book-rating">(4/10)</span></li>
+            <li><span class="book-title">The Hitchhiker's Guide to the Galaxy</span> by Douglas <span class="book-author">Adams</span> <span class="book-rating">(5/10)</span></li>
+            <li><span class="book-title">The Hobbit</span> by J.R.R. <span class="book-author">Tolkien</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">The Little Prince</span> by Antoine de <span class="book-author">Saint-Exupery</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">The Old Man and the Sea</span> by Ernest <span class="book-author">Hemingway</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Opposite of Loneliness: Essays and Stories</span> by Marina <span class="book-author">Keegan</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">The Perks of Being a Wallflower</span> by Stephen <span class="book-author">Chbosky</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">The Stranger</span> by Albert <span class="book-author">Camus</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">The Stranger in the Woods: The Extraordinary Story of the Last True Hermit</span> by Michael <span class="book-author">Finkel</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">The Unexpected Guest</span> by Agatha <span class="book-author">Christie</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">The Year of Magical Thinking</span> by Joan <span class="book-author">Didion</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Think Like a Freak</span> by Steven D. <span class="book-author">Levitt</span> <span class="book-rating">(6/10)</span></li>
+            <li><span class="book-title">Tiny Beautiful Things: Advice on Love and Life from Dear Sugar</span> by Cheryl <span class="book-author">Strayed</span> <span class="book-rating">(4/10)</span></li>
+            <li><span class="book-title">To Kill a Mockingbird</span> by Harper <span class="book-author">Lee</span> <span class="book-rating">(10/10)</span></li>
+            <li><span class="book-title">Tuesdays with Morrie</span> by Mitch <span class="book-author">Albom</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Uncommon: Finding Your Path to Significance</span> by Tony <span class="book-author">Dungy</span> <span class="book-rating">(7/10)</span></li>
+            <li><span class="book-title">When Breath Becomes Air</span> by Paul <span class="book-author">Kalanithi</span> <span class="book-rating">(8/10)</span></li>
+            <li><span class="book-title">Wool</span> by Hugh <span class="book-author">Howey</span> <span class="book-rating">(6/10)</span></li>
         </ul>
+        <script>
+            // Adapted from https://www.w3schools.com/howto/howto_js_sort_list.asp
+            function sortList(sortOn) {
+                var list, i, switching, b, shouldSwitch;
+                list = document.getElementById("books");
+                switching = true;
+
+                while (switching) {
+                    switching = false;
+                    b = list.getElementsByTagName("LI");
+
+                    for (i = 0; i < (b.length - 1); i++) {
+                        shouldSwitch = false;
+                        if (b[i].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase() > b[i + 1].getElementsByClassName('book-' + sortOn)[0].innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    if (shouldSwitch) {
+                        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                        switching = true;
+                    }
+                }
+            }
+        </script>
     </section>
 
     <footer>

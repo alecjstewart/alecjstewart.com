@@ -13,7 +13,8 @@ body.dark-mode {
     background-color: #121212;
     color: #eee;
 }
-body.dark-mode a {
+body.dark-mode a,
+body.dark-mode button[class^='btn-'] {
     color: #ffab91;
 }
 body.dark-mode header h1 a {
@@ -85,6 +86,26 @@ table {
 }
 td time {
     padding-right: 1rem;
+}
+
+/* Books */
+.btn-author,
+.btn-title,
+.btn-rating {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #cc5500;
+}
+
+.book-title {
+    font-style: italic;
+}
+.book-rating {
+    font-weight: bold;
 }
 
 /* Footer */

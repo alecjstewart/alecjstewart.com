@@ -18,7 +18,7 @@ def get_books(status):
         response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
         books.extend(response['Items'])
 
-    sorted_books = sorted(books, key=lambda i: i['author_lastname'])
+    sorted_books = sorted(books, key=lambda i: i['title'])
     return sorted_books
 
 
