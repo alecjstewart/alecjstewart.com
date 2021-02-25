@@ -16,9 +16,9 @@
         <ul id="books">
         {%- for book in books_read %}
             {%- if book.review_link == '' %}
-            <li title="{{ book.date_read }}"><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong></li>
+            <li title="Date Read: {{ book.date_read }}"><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong></li>
             {%- else %}
-            <li title="{{ book.date_read }}"><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong> &mdash; <a href="{{ book.review_link }}">review</a></li>
+            <li title="Date Read: {{ book.date_read }}"><span class="book-title">{{ book.title }}</span> by {{ book.author_firstname }} <span class="book-author">{{ book.author_lastname }}</span> <strong>(<span class="book-rating">{{ book.rating }}</span>/10)</strong> &mdash; <a href="{{ book.review_link }}">review</a></li>
             {%- endif %}
         {%- endfor %}
         </ul>
